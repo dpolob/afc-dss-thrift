@@ -114,11 +114,11 @@ if __name__=="__main__":
     handler = DssServiceHandler()
     proc = DssService.Processor(handler)
 
-    trans_svr = TSocket.TServerSocket(port=globals.MMTPORT)
+    trans_svr = TSocket.TServerSocket(host=globals.MMTURL, port=globals.MMTPORT)
     #trans_fac = TTransport.TBufferedTransportFactory()
     trans_fac = TTransport.TFramedTransportFactory()
     proto_fac = TBinaryProtocol.TBinaryProtocolFactory()
     server = TServer.TSimpleServer(proc, trans_svr, trans_fac, proto_fac)
     logger.info("[THRIFT SERVER] Started in port {}".format(globals.MMTPORT))
-    print("[THRIFT SERVER] Started in port {}".format(globals.MMTPORT))
+    print("[THRIFT SERVER] Started in {} port {}".format(globals.MMTURL, globals.MMTPORT))
     server.serve()
