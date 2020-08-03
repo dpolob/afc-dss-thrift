@@ -92,7 +92,7 @@ class DssServiceHandler:
             """
 
             # send command to algorithm 
-            logger.info("[THRIFT SERVER] Sending/run_alg  command to algorithm id: {} with requestId {} with config {}".format(algorithmId, requestId))
+            logger.info("[THRIFT SERVER] Sending/run_alg  command to algorithm id: {} with requestId {}".format(algorithmId, requestId))
             u = globals.DSS_START_URL + "/" + str(algorithmId)
             dss_response = requests.get(url=u, params={"request_id": requestId}, auth= ('user','fakepass'))
             dss_response.raise_for_status()
