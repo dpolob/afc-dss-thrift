@@ -1,0 +1,11 @@
+# dockerfile for dss-framework
+FROM 16591354/dss-framework:latest
+
+COPY . /afc_dss-thrift
+
+
+RUN apt-get update
+
+WORKDIR /afc_dss-thrift
+RUN pip3 install -r requeriments.txt
+CMD python3 mmt_thrift.py
